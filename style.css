@@ -2,61 +2,63 @@ body {
   font-family: Arial, sans-serif;
   margin: 20px;
 }
+
 #calendar-controls {
   margin-bottom: 10px;
 }
-table {
-  border-collapse: collapse;
-  width: 100%;
+
+#days-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-th, td {
+
+.day {
+  width: 60px;
+  height: 60px;
   border: 1px solid #ccc;
-  width: 14.28%;
-  height: 100px;
-  vertical-align: top;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-}
-td.empty {
-  background-color: #f9f9f9;
-}
-td {
   cursor: pointer;
 }
-.day-number {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  font-weight: bold;
-}
-.item-total {
+
+.day-total {
   position: absolute;
   bottom: 4px;
   right: 4px;
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
+
 #item-modal.hidden {
   display: none;
 }
+
 #item-modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .modal-content {
   background: #fff;
   padding: 20px;
   width: 300px;
 }
+
 #item-list {
   list-style: none;
   padding: 0;
 }
+
 #item-list li {
   margin-bottom: 4px;
 }

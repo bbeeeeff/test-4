@@ -1,9 +1,9 @@
 # Calendar Purchase Tracker
 
-This project is a simple calendar web app that lets you record purchases for each day and see weekly and monthly totals.
+This project is a simple purchase tracker where each day of the month is shown as a clickable circle. Selecting a day lets you record purchases and the app calculates weekly and monthly totals.
 
 ## Features
-- Click any day on the calendar to add multiple purchase items.
+- Click any day circle to add multiple purchase items.
 - Items have a default name (Purchase 1, Purchase 2, ...) but can be renamed.
 - Optional description field for each item.
 - Quantity and cost inputs with separate dollar and cent fields.

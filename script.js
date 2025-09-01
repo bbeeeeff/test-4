@@ -1,4 +1,4 @@
-const calendarBody = document.getElementById('calendar-body');
+const daysContainer = document.getElementById('days-container');
 const monthLabel = document.getElementById('month-label');
 const prevBtn = document.getElementById('prev-month');
 const nextBtn = document.getElementById('next-month');
@@ -17,40 +17,25 @@ function saveData() {
 }
 
 function renderCalendar() {
-  calendarBody.innerHTML = '';
+  daysContainer.innerHTML = '';
   const year = current.getFullYear();
   const month = current.getMonth();
-  const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   monthLabel.textContent = current.toLocaleString('default', { month: 'long', year: 'numeric' });
-  let date = 1;
-  for (let week = 0; week < 6; week++) {
-    const row = document.createElement('tr');
-    for (let day = 0; day < 7; day++) {
-      const cell = document.createElement('td');
-      if ((week === 0 && day < firstDay) || date > daysInMonth) {
-        cell.classList.add('empty');
-      } else {
-        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-        cell.dataset.date = dateStr;
-        const span = document.createElement('span');
-        span.className = 'day-number';
-        span.textContent = date;
-        cell.appendChild(span);
-        if (data[dateStr]) {
-          const total = data[dateStr].reduce((sum, item) => sum + item.total, 0);
-          const totalSpan = document.createElement('span');
-          totalSpan.className = 'item-total';
-          totalSpan.textContent = `$${total.toFixed(2)}`;
-          cell.appendChild(totalSpan);
-        }
-        cell.addEventListener('click', () => openModal(dateStr));
-        date++;
-      }
-      row.appendChild(cell);
+  for (let date = 1; date <= daysInMonth; date++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+    const dayDiv = document.createElement('div');
+    dayDiv.className = 'day';
+    dayDiv.textContent = date;
+    if (data[dateStr]) {
+      const total = data[dateStr].reduce((sum, item) => sum + item.total, 0);
+      const totalSpan = document.createElement('span');
+      totalSpan.className = 'day-total';
+      totalSpan.textContent = `$${total.toFixed(2)}`;
+      dayDiv.appendChild(totalSpan);
     }
-    calendarBody.appendChild(row);
-    if (date > daysInMonth) break;
+    dayDiv.addEventListener('click', () => openModal(dateStr));
+    daysContainer.appendChild(dayDiv);
   }
   updateSummaries();
 }
