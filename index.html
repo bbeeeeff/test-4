@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar Purchases</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calendar Purchases</h1>
+  <div id="calendar-controls">
+    <button id="prev-month">&lt;</button>
+    <span id="month-label"></span>
+    <button id="next-month">&gt;</button>
+  </div>
+  <div id="days-container"></div>
+
+  <section id="summaries">
+    <h2>Weekly Totals</h2>
+    <ul id="weekly-summary"></ul>
+    <h2>Monthly Total</h2>
+    <p id="monthly-total">$0.00</p>
+  </section>
+
+  <div id="item-modal" class="hidden">
+    <div class="modal-content">
+      <h2 id="modal-date"></h2>
+      <ul id="item-list"></ul>
+      <form id="item-form">
+        <div>
+          <label>Name:</label>
+          <input type="text" id="item-name" placeholder="Purchase">
+        </div>
+        <div>
+          <label>Description:</label>
+          <input type="text" id="item-description">
+        </div>
+        <div>
+          <label>Quantity:</label>
+          <input type="number" id="item-quantity" min="1" value="1">
+        </div>
+        <div>
+          <label>Cost:</label>
+          <span>$</span>
+          <input type="number" id="item-dollars" min="0" value="0">
+          <span>.</span>
+          <input type="number" id="item-cents" min="0" max="99" value="0">
+        </div>
+        <button type="submit">Save Item</button>
+        <button type="button" id="close-modal">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

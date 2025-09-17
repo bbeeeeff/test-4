@@ -1,0 +1,8 @@
+{
+  "name": "calendar-app",
+  "version": "1.0.0",
+  "description": "Simple calendar purchase tracker",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  }
+}
